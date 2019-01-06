@@ -1,0 +1,17 @@
+{
+    "name": "jsonloaderv2",
+    "version": "1.0.0",
+    "description": "Simple JSON loading and saving utility",
+    "main": "index.js",
+    "scripts": {
+        "build": "babel src --presets babel-preset-es2015 --out-dir lib",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["json", "loader", "read", "write"],
+    "author": "Samuel Allen",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-es2015": "^6.24.1"
+    }
+}
