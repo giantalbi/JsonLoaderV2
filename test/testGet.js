@@ -6,9 +6,9 @@ const testFileContent = {
     "value": 42
 };
 
-describe("get()", function(){
+describe("get([force = false])", function(){
     it("should load the file", function(){
-        var testLoader = new jsonLoader("test", "test/test.json");
+        var testLoader = new jsonLoader("test/test.json");
         var test = testLoader.get();
 
         expect(test).to.eql(testFileContent);

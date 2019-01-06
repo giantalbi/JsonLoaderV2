@@ -8,7 +8,7 @@ const testFileContent = {
 
 describe("save(content)", function(){
     it("Save the file", function(){
-        var testLoader = new jsonLoader("testSave", "test/testSave.json");
+        var testLoader = new jsonLoader("test/testSave.json");
         var test = testLoader.get();
         test.value++;
         return testLoader.save(test).then(function(message){    

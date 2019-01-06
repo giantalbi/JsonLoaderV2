@@ -5,8 +5,7 @@ import fs, { writeFile } from 'fs';
 import path from 'path';
 
 export default class Loader{
-    constructor(name, file = undefined){
-        this.name = name;
+    constructor(file = undefined){
         this.file = file;
     }
 

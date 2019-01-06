@@ -6,23 +6,46 @@ _Simple JSON loading and saving utility_
 ## The loader
 The "loader" works as a JSON file manager than can read and write
 
-You simply import the loader then call it with a designated name and filename
+You simply import the loader then call it with its designated filename
 ```javascript
 var jsonloader = require('jsonloaderv2');
 
-var configLoader = jsonloader("config", "config.json");
+var configLoader = new jsonloader("config.json");
 ```
-This way the `configLoader` object can now manage the `config.json` file and can be recreated later only using the designated name `config` without the filename argument
-```javascript
-var anotherConfigLoader = jsonload("config");
-```
-### get()
-Returns the content of the JSON file
+This way the `configLoader` object can now manage the `config.json` file with `get()` and `save()`
+
+### get([force = false])
+Returns the content of the JSON file.
+Use the `force` argument to force loading from the file and not from cache
 
 ```javascript
-var config = configLoader.get()
+/*
+ * Returns the content of the file then caches it
+ * for future call
+ */
+var config = configLoader.get();
+
+// Will always return the content from the file itself
+var config = configLoader.get(true);
 ```
+
 
 ### save(json)
-Saves the modification to the original file
+Saves the given JSON to the original file
 and returns a promise 
+
+```javascript
+var configLoader = new jsonloader("config.json");
+
+var config = configLoader.get();
+config.value = "Something else";
+
+configLoader.save(config).then(function(message){    
+    // Save success
+    console.log(message);    
+}, function(err){
+    // Save failure
+    console.log(err)
+})    
+
+```
